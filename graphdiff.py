@@ -61,7 +61,7 @@ class graphDiff:
 				if i + 1 < len(G):
 					G[i][i+1] = 0
 			elif mode == "in":
-				if i - 1 >= 0:
+				if i >= 1:
 					G[i][i-1] = 0
 
 		for x in cs:
@@ -103,8 +103,7 @@ class graphDiff:
 		return [*dC, *dH, *dER]
 
 	def solve_c(self, c, er, g, jer):
-		dC = 0.05*(g @ c)/self.dx**2
-		return dC
+		return 0.05*(g @ c)/self.dx**2
 
 	def solve_h(self, c, h):
 		ah = self.params['a2']*self.params['d2']*(self.params['ip3']+self.params['d1'])/(self.params['ip3']+self.params['d3'])
